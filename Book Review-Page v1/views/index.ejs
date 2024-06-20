@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reviews</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <h1>Running Successfully</h1>
+    
+    <div>
+      <form action="/" method="POST">
+        <h3>Want to Add your own Review. Go Ahead!!</h3>
+        <div>
+          <label for="bookid"> Book ID</label>
+          <input type="text" placeholder="ID" name="bookid" required>
+        </div>
+        
+        <div>
+          <label for="bookname"> Book Name </label>
+          <input type="text" placeholder="Enter Book Name" name="bookname" required>
+        </div>
+        
+
+        <div>
+          <label for="isbn" method="POST"> ISBN </label>
+          <input type="text" placeholder="Enter the ISBN Number" name="isbn" required>
+        </div>
+        
+
+        <div>
+          <label for="author"> Author </label>
+          <input type="text" placeholder="Author Name" name="author" required>
+
+        </div>
+        
+        <div>
+          <label for="dateread"> Date Read</label>
+          <input type="text" placeholder="Date You Read" name="dateread" required>
+        </div>
+        
+
+        <div>
+          <label for="review"> Review </label>
+          <input type="text" placeholder="Review" name="review" required>
+        </div>        
+        
+        <div>
+          <label for="rating"> Rating </label>
+          <input type="text" placeholder="Rating" name="rating" required>
+        </div>    
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    <hr>
+
+    <div class="mid">
+      <h1>Book Reviews: </h1>
+      <% data.forEach(function(row) { %>
+
+        <h2> <%= row.book_id %>. <%= row.book_name %></h2>
+        <h5>Author: <%= row.author %></h5>
+        <h5>Date Read: <%= row.date_read %></h5>
+        <h5>Rating: <%= row.ratingigive %></h5>
+        <p>Book Review: <%= row.review %></p>
+        <hr>  
+      <% }); %>
+    </div>
+
+    <div class="mid">
+      <form action="/delete-review" method="POST">
+      <h5>Delete Any Review by their ID : </h5>      
+          <label for="id"> ID </label>
+          <input type="text" placeholder="ID" name="book_id" required>
+          <button type="submit">Submit</button>
+      </form>
+          
+    </div>
+    
+    
+    
+</body>
+</html>
